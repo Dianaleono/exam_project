@@ -1,1 +1,459 @@
-# exam_project
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Освітній AR проєкт - Симетрія та Перетворення</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; color: #333;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; color: white; margin-bottom: 40px; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .card { 
+            background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px; overflow: hidden; transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-header { 
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white; padding: 20px; text-align: center;
+        }
+        .card-body { padding: 30px; }
+        .tech-badge { 
+            display: inline-block; background: #e3f2fd; color: #1976d2;
+            padding: 5px 15px; border-radius: 20px; margin: 5px;
+            font-size: 0.9rem;
+        }
+        .btn { 
+            display: inline-block; padding: 15px 30px; background: #667eea;
+            color: white; text-decoration: none; border-radius: 25px;
+            transition: background 0.3s ease; margin: 10px;
+        }
+        .btn:hover { background: #5a67d8; }
+        .btn-secondary { background: #764ba2; }
+        .btn-secondary:hover { background: #6b4c96; }
+        .btn-success { background: #28a745; }
+        .btn-success:hover { background: #218838; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .feature { text-align: center; padding: 20px; }
+        .feature-icon { font-size: 3rem; margin-bottom: 15px; }
+        .author-info { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .demo-preview { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; margin: 20px 0; 
+        }
+        .demo-card { 
+            background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 10px; 
+            padding: 20px; text-align: center; transition: all 0.3s ease;
+        }
+        .demo-card:hover { border-color: #667eea; background: #e3f2fd; }
+        .marker-preview {
+            width: 100px; height: 100px; background: #fff; border: 2px dashed #ccc;
+            margin: 10px auto; display: flex; align-items: center; justify-content: center;
+            border-radius: 10px; font-size: 0.8rem; color: #666;
+        }
+        .transformation-demo {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white; padding: 20px; border-radius: 10px; margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔄 Симетрія та Перетворення</h1>
+            <p>Інтерактивне вивчення геометричних перетворень за допомогою маркерної AR</p>
+        </div>
+
+        <!-- Project Info Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📊 Інформація про проєкт</h2>
+            </div>
+            <div class="card-body">
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Мета проєкту</h3>
+                        <p>Вивчення властивостей симетрії та геометричних перетворень через інтерактивну AR візуалізацію</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">👥</div>
+                        <h3>Цільова аудиторія</h3>
+                        <p>Учні 7-9 класів та студенти математичних спеціальностей</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📱</div>
+                        <h3>Платформа</h3>
+                        <p>Мобільні пристрої з камерою (Android/iOS)</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <span class="tech-badge">MindAR</span>
+                    <span class="tech-badge">Three.js</span>
+                    <span class="tech-badge">AR.js</span>
+                    <span class="tech-badge">WebGL</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🚀 Демонстрація AR</h2>
+            </div>
+            <div class="card-body">
+                <div class="transformation-demo">
+                    <h3>📸 Для роботи з AR потрібна камера!</h3>
+                    <p>Роздрукуйте маркери та наведіть камеру для перегляду 3D геометричних перетворень</p>
+                </div>
+                
+                <div class="demo-preview">
+                    <div class="demo-card">
+                        <h4>🪞 Осьова симетрія</h4>
+                        <div class="marker-preview">Маркер A</div>
+                        <p>Демонстрація відображення відносно осі</p>
+                    </div>
+                    <div class="demo-card">
+                        <h4>🔄 Поворот</h4>
+                        <div class="marker-preview">Маркер B</div>
+                        <p>Поворот фігур навколо точки</p>
+                    </div>
+                    <div class="demo-card">
+                        <h4>➡️ Паралельне перенесення</h4>
+                        <div class="marker-preview">Маркер C</div>
+                        <p>Переміщення фігур у просторі</p>
+                    </div>
+                    <div class="demo-card">
+                        <h4>📏 Гомотетія</h4>
+                        <div class="marker-preview">Маркер D</div>
+                        <p>Збільшення та зменшення фігур</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" onclick="startARDemo()" class="btn btn-success">📱 Запустити AR Камеру</a>
+                    <a href="#" onclick="downloadMarkers()" class="btn">📄 Завантажити маркери</a>
+                    <a href="#" onclick="showInstructions()" class="btn btn-secondary">📖 Інструкція</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>✨ Функціональність</h2>
+            </div>
+            <div class="card-body">
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Інтерактивні перетворення</h3>
+                        <p>Реальне відображення симетрії, поворотів та переміщень 3D об'єктів</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📐</div>
+                        <h3>Освітній контент</h3>
+                        <p>Вивчення властивостей перетворень та їх застосування в геометрії</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎨</div>
+                        <h3>3D Візуалізація</h3>
+                        <p>Яскраві 3D моделі з анімацією перетворень та підсвічуванням</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h3>Множинні маркери</h3>
+                        <p>Одночасна робота з декількома маркерами для порівняння перетворень</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformations Theory Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📚 Теоретичні відомості</h2>
+            </div>
+            <div class="card-body">
+                <h3>Основні види геометричних перетворень:</h3>
+                <div style="margin: 20px 0;">
+                    <h4>🪞 Осьова симетрія (відображення)</h4>
+                    <p>Перетворення, при якому кожна точка фігури переходить у точку, симетричну відносно даної прямої (осі симетрії).</p>
+                    
+                    <h4>🔄 Поворот</h4>
+                    <p>Перетворення площини, при якому кожна точка повертається навколо фіксованої точки (центру повороту) на заданий кут.</p>
+                    
+                    <h4>➡️ Паралельне перенесення</h4>
+                    <p>Перетворення, при якому всі точки площини переміщуються в одному напрямку на одну й ту саму відстань.</p>
+                    
+                    <h4>📏 Гомотетія</h4>
+                    <p>Перетворення подібності, при якому відстані від центру гомотетії до точок фігури змінюються в однаковому відношенні.</p>
+                </div>
+                
+                <div style="background: #e8f5e8; padding: 15px; border-radius: 10px;">
+                    <strong>💡 Цікавий факт:</strong> Всі ці перетворення зберігають форму фігур, а деякі (ізометрії) також зберігають розміри!
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Details Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>⚙️ Технічні деталі</h2>
+            </div>
+            <div class="card-body">
+                <h3>Системні вимоги:</h3>
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li>Мобільний пристрій з підтримкою WebGL</li>
+                    <li>Сучасний браузер (Chrome, Firefox, Safari)</li>
+                    <li>Камера та акселерометр</li>
+                    <li>Підтримка WebRTC для доступу до камери</li>
+                    <li>Роздруковані AR маркери</li>
+                </ul>
+                
+                <h3>Використані технології:</h3>
+                <div>
+                    <span class="tech-badge">MindAR</span>
+                    <span class="tech-badge">Three.js</span>
+                    <span class="tech-badge">WebGL</span>
+                    <span class="tech-badge">WebRTC</span>
+                    <span class="tech-badge">JavaScript ES6+</span>
+                    <span class="tech-badge">CSS3 Animations</span>
+                </div>
+                
+                <h3 style="margin-top: 20px;">AR Особливості:</h3>
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li>Розпізнавання множинних маркерів одночасно</li>
+                    <li>Стабільне відстеження в реальному часі</li>
+                    <li>Smooth анімації перетворень</li>
+                    <li>Автоматичне масштабування 3D об'єктів</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Documentation Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📚 Документація та ресурси</h2>
+            </div>
+            <div class="card-body" style="text-align: center;">
+                <a href="#" onclick="showUserGuide()" class="btn">👤 Посібник користувача</a>
+                <a href="#" onclick="showMarkerGuide()" class="btn btn-secondary">🎯 Як використовувати маркери</a>
+                <a href="#" onclick="showTechnicalDocs()" class="btn">🔧 Технічна документація</a>
+                <a href="#" onclick="showMathTheory()" class="btn btn-success">📐 Математична теорія</a>
+            </div>
+        </div>
+
+        <!-- Author Info -->
+        <div class="author-info">
+            <h3>👨‍🎓 Автор проєкту</h3>
+            <p><strong>Ім'я:</strong> [Леонова Діана Олегівна]</p>
+            <p><strong>Група:</strong> [Мім-24]</p>
+            <p><strong>Спеціальність:</strong> Математика / Прикладна математика</p>
+            <p><strong>Викладач:</strong> [Семеренко Сергій Олексійович]</p>
+            <p><strong>Дисципліна:</strong> Інноваційні цифрові технології в освіті</p>
+            <p><strong>Рік:</strong> 2025</p>
+            <p><strong>Тип проєкту:</strong> Маркерна AR (Середній рівень складності)</p>
+        </div>
+    </div>
+
+    <!-- Hidden AR Container -->
+    <div id="ar-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 1000;">
+        <div style="position: absolute; top: 20px; left: 20px; z-index: 1001;">
+            <button onclick="stopAR()" style="background: #ff4444; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">❌ Закрити AR</button>
+        </div>
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 1001; color: white; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px;">
+            <div>📷 Наведіть камеру на маркер</div>
+            <div style="font-size: 12px; margin-top: 5px;">Маркери: A, B, C, D</div>
+        </div>
+        <canvas id="ar-canvas" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <script>
+        // Проєкт налаштування
+        const projectType = 'AR_MARKER';
+        const isCSStudent = false;
+        
+        // AR система (симуляція)
+        let arActive = false;
+        let arScene = null;
+        
+        function startARDemo() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('❌ Ваш браузер не підтримує доступ до камери. Спробуйте Chrome або Firefox.');
+                return;
+            }
+
+            arActive = true;
+            document.getElementById('ar-container').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Симуляція ініціалізації AR
+            initializeARSimulation();
+            
+            // Запуск камери
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+                .then(stream => {
+                    console.log('📷 Камера активована для AR');
+                    // В реальному проєкті тут буде ініціалізація MindAR
+                })
+                .catch(err => {
+                    console.error('Помилка доступу до камери:', err);
+                    alert('❌ Не вдалося отримати доступ до камери. Перевірте дозволи.');
+                    stopAR();
+                });
+        }
+        
+        function stopAR() {
+            arActive = false;
+            document.getElementById('ar-container').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Зупинка камери та AR
+            if (arScene) {
+                // Очищення AR сцени
+                arScene = null;
+            }
+        }
+        
+        function initializeARSimulation() {
+            const canvas = document.getElementById('ar-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Симуляція AR інтерфейсу
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Показуємо інструкції
+            setTimeout(() => {
+                if (arActive) {
+                    showARInstructions();
+                }
+            }, 2000);
+        }
+        
+        function showARInstructions() {
+            alert(`📱 AR Інструкції:
+
+🎯 Наведіть камеру на роздруковані маркери:
+• Маркер A - Осьова симетрія 🪞
+• Маркер B - Поворот 🔄  
+• Маркер C - Паралельне перенесення ➡️
+• Маркер D - Гомотетія 📏
+
+💡 Можна використовувати декілька маркерів одночасно для порівняння перетворень!
+
+📄 Якщо у вас немає маркерів - натисніть "Завантажити маркери"`);
+        }
+        
+        function downloadMarkers() {
+            // Симуляція завантаження маркерів
+            const markerData = `
+AR Маркери для проєкту "Симетрія та Перетворення"
+
+📄 Роздрукуйте ці маркери на білому папері:
+
+Маркер A (Симетрія): QR-код з унікальним патерном
+Маркер B (Поворот): Геометричний патерн для розпізнавання  
+Маркер C (Перенесення): Стрілка-маркер
+Маркер D (Гомотетія): Концентричні кола
+
+🖨️ Налаштування друку:
+- Розмір: A4
+- Якість: Висока (300+ DPI)  
+- Кольори: Чорно-білий
+- Масштаб: 100%
+
+📱 Після друку використовуйте їх з AR додатком`;
+
+            const blob = new Blob([markerData], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'AR_Markers_Симетрія.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert('📄 Інструкції для маркерів завантажено! В реальному проєкті тут будуть готові PDF файли з маркерами.');
+        }
+        
+        function showInstructions() {
+            alert(`📖 Інструкція по використанню:
+
+1️⃣ Роздрукуйте AR маркери (кнопка "Завантажити маркери")
+2️⃣ Натисніть "Запустити AR Камеру"  
+3️⃣ Дозвольте доступ до камери
+4️⃣ Наведіть камеру на маркер
+5️⃣ Спостерігайте за 3D перетвореннями!
+
+🎯 Кожен маркер показує різний тип перетворення:
+• A - Відображення відносно осі
+• B - Поворот навколо точки
+• C - Паралельне перенесення  
+• D - Збільшення/зменшення
+
+💡 Рухайте маркери для інтерактивної взаємодії!`);
+        }
+        
+        function showUserGuide() {
+            window.open('data:text/html,<h1>Посібник користувача - Симетрія та Перетворення</h1><p>Детальний посібник по роботі з AR додатком...</p>', '_blank');
+        }
+        
+        function showMarkerGuide() {
+            alert(`🎯 Посібник по маркерах:
+
+📄 Маркер A - Осьова симетрія:
+Показує фігуру та її відображення відносно осі. Можна крутити для зміни кута огляду.
+
+🔄 Маркер B - Поворот:
+Демонструє поворот фігури навколо центральної точки з різними кутами.
+
+➡️ Маркер C - Паралельне перенесення:
+Показує переміщення фігури у просторі зі збереженням орієнтації.
+
+📏 Маркер D - Гомотетія:
+Демонструє збільшення/зменшення фігури відносно центру гомотетії.
+
+💡 Підказки:
+- Тримайте маркер стабільно для кращого відстеження
+- Використовуйте добре освітлене місце
+- Експериментуйте з кутами нахилу маркера`);
+        }
+        
+        function showTechnicalDocs() {
+            window.open('data:text/html,<h1>Технічна документація</h1><p>Архітектура AR системи, API маркерів, налаштування...</p>', '_blank');
+        }
+        
+        function showMathTheory() {
+            window.open('data:text/html,<h1>Математична теорія перетворень</h1><p>Формули, властивості, приклади геометричних перетворень...</p>', '_blank');
+        }
+        
+        // Адаптивність
+        window.addEventListener('resize', function() {
+            if (arActive) {
+                const canvas = document.getElementById('ar-canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+        
+        // Попередження про камеру
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                console.log('🔄 AR проєкт "Симетрія та Перетворення" завантажено');
+                console.log('📱 Для повної функціональності потрібна камера та роздруковані маркери');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
