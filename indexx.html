@@ -305,6 +305,8 @@
             navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
                 .then(stream => {
                     console.log('📷 Камера активована для AR');
+                    const video = document.getElementById('camera-video');
+                    video.srcObject = stream;
                     // В реальному проєкті тут буде ініціалізація MindAR
                 })
                 .catch(err => {
